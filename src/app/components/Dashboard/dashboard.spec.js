@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 
 import { creditScoreReport, longTermDebtReport } from '../../../../tests/mocks/fixtures'
 import mockAPIResponse from '../../../../tests/mocks/mockAPIResponse'
@@ -9,6 +10,13 @@ import ReportContainer from '../ReportContainer/ReportContainer.jsx'
 
 describe('Dashboard', () => {
   describe('when loading', () => {
+
+    it('renders', () => {
+      const component = renderer.create(<Dashboard />);
+      const json = component.toJSON();
+      expect(json).toMatchSnapshot();
+    });
+
     it('displays a loading sign', () => {
       const component = shallow(<Dashboard />);
       const loadingSign = component.find(Loading);
@@ -17,6 +25,12 @@ describe('Dashboard', () => {
   });
 
   describe('when loaded', () => {
+    it('renders', () => {
+      const component = renderer.create(<Dashboard loading={false}/>);
+      const json = component.toJSON();
+      expect(json).toMatchSnapshot();
+    });
+
     const component = shallow(<Dashboard />);
     
     component.setState({

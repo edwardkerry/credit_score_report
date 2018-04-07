@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard when loaded renders 1`] = `
+<div
+  className="report__loading"
+/>
+`;
+
+exports[`Dashboard when loading renders 1`] = `
+<div
+  className="report__loading"
+/>
+`;
