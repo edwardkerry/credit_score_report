@@ -1,10 +1,10 @@
 import makeCreditScore from './creditScore'
-import creditReportAPIResponse  from '../../../tests/mocks/creditReportAPIResponse'
+import mockAPIResponse  from '../../../tests/mocks/mockAPIResponse'
 
 describe('makeCreditScore', () => {
   it('returns a creditScore object', () => {
 
-    const creditReportAPIInfo = creditReportAPIResponse.creditReportInfo
+    const creditReportAPIInfo = mockAPIResponse.creditReportInfo
     
     const expectedCreditScore = {
       description: "Excellent",

@@ -1,10 +1,10 @@
 import makeLongTermDebt from './longTermDebt'
-import creditReportAPIResponse from '../../../tests/mocks/creditReportAPIResponse'
+import mockAPIResponse from '../../../tests/mocks/mockAPIResponse'
 
 describe('makeLongTermDebt', () => {
   it('returns a makeLongTermDebt object', () => {
 
-    const creditReportAPIInfo = creditReportAPIResponse.creditReportInfo
+    const creditReportAPIInfo = mockAPIResponse.creditReportInfo
 
     const expectedMakeLongTermDebt = {
       currentCreditLimit: 0,
