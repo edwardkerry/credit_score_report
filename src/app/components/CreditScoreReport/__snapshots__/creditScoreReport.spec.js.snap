@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditScoreReport renders 1`] = `
+<div>
+  Your credit score is
+  <p>
+    100
+  </p>
+  out of
+  <p>
+     
+    700
+     
+  </p>
+  <p>
+    Not great
+  </p>
+</div>
+`;
