@@ -4,7 +4,7 @@ import bemHelper from '../../utils/bem';
 
 import './loading.scss';
 
-const cn = bemHelper({ block: 'content' });
+const cn = bemHelper({ block: 'report' });
 
 export default() => (
   <div className={cn('loading', null)} />

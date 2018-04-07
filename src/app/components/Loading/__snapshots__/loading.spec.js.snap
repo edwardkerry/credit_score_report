@@ -2,6 +2,6 @@
 
 exports[`Loading renders 1`] = `
 <div
-  className="content__loading"
+  className="report__loading"
 />
 `;
