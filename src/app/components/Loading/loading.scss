@@ -1,0 +1,24 @@
+.content__loading {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  -webkit-animation: fadein 2s ease-in alternate infinite;
+  -moz-animation: fadein 2s ease-in alternate infinite;
+  animation: fadein 2s ease-in alternate infinite;
+  background-image: url('/clearscore.png');
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
+
+@-moz-keyframes fadein {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
+
+@keyframes fadein {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
+}
