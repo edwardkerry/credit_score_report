@@ -15,7 +15,11 @@ const ReactContainer = ({ creditScore, longTermDebt}) => {
   const { currentCreditLimit, currentDebt, debtChange} = { ...longTermDebt }
 
    return (
-    <Carousel className={cn('carousel', null)}>
+    <Carousel 
+      className={cn('carousel', null)}
+      renderCenterLeftControls={() => {}}    
+      renderCenterRightControls={() => {}}    
+    >
       <CreditScoreReport 
         score={score} 
         maxScore={maxScore} 

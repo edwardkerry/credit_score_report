@@ -10,27 +10,14 @@ import ReportContainer from '../ReportContainer/ReportContainer.jsx'
 
 describe('Dashboard', () => {
   describe('when loading', () => {
-
-    it('renders', () => {
-      const component = renderer.create(<Dashboard />);
-      const json = component.toJSON();
-      expect(json).toMatchSnapshot();
-    });
-
     it('displays a loading sign', () => {
       const component = shallow(<Dashboard />);
-      const loadingSign = component.find(Loading);
-      expect(loadingSign.length).toEqual(1);
+      expect(component.find(Loading).exists()).toEqual(true);
     });
   });
 
   describe('when loaded', () => {
-    it('renders', () => {
-      const component = renderer.create(<Dashboard loading={false}/>);
-      const json = component.toJSON();
-      expect(json).toMatchSnapshot();
-    });
-
+ 
     const component = shallow(<Dashboard />);
     
     component.setState({
@@ -39,21 +26,22 @@ describe('Dashboard', () => {
       longTermDebt: longTermDebtReport,
     });
     
-    const reportContainer = component.find(ReportContainer);
-    
     it('does not display a loading sign', () => {
       const loadingSign = component.find(Loading);
-      expect(loadingSign.length).toEqual(0);
+      expect(component.find(Loading).exists()).toEqual(false);
     });
-
-    it('displays a report container', () => {
-      expect(reportContainer.length).toEqual(1);
-    });
-
-    it('passes state to children as props', () => {
-      expect(reportContainer.prop('creditScore')).toEqual(creditScoreReport);
-      expect(reportContainer.prop('longTermDebt')).toEqual(longTermDebtReport);
+    
+    describe('children', () => {
+      const reportContainer = component.find(ReportContainer);
+      
+      it('displays a report container', () => {
+        expect(reportContainer.length).toEqual(1);
+      });
+  
+      it('passes state to children as props', () => {
+        expect(reportContainer.prop('creditScore')).toEqual(creditScoreReport);
+        expect(reportContainer.prop('longTermDebt')).toEqual(longTermDebtReport);
+      });
     });
   });
-
 });
