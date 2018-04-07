@@ -7,11 +7,12 @@ describe('makeLongTermDebt', () => {
     const creditReportAPIInfo = creditReportAPIResponse.creditReportInfo
 
     const expectedMakeLongTermDebt = {
-      currentCreditLimit: null,
+      currentCreditLimit: 0,
       currentDebt: 24682,
       debtChange: -327
     }
 
     expect(makeLongTermDebt(creditReportAPIInfo)).toEqual(expectedMakeLongTermDebt);
   });
+
 });
