@@ -2,24 +2,20 @@
 
 exports[`CreditScoreReport renders 1`] = `
 <div
-  className="creditScore__report"
+  className="report__creditScore"
 >
   Your credit score is
   <p
-    className="creditScore__score"
+    className="report__score"
   >
     100
   </p>
-  out of
-  <p
-    className="creditScore__maxScore"
-  >
-     
+  out of 
+  <b>
     700
-     
-  </p>
+  </b>
   <p
-    className="creditScore__description"
+    className="report__description"
   >
     Not great
   </p>

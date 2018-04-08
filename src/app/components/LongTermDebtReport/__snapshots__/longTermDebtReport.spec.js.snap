@@ -1,82 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LongTermDebtReport displays when long term debt has decreased 1`] = `
-<div
-  className="longTermDebt__report"
->
-  Your long term debt total
-  <p
-    className="longTermDebt__currentDebt"
-  >
-    £
-    800
-  </p>
-  <p
-    className="longTermDebt__creditLimit"
-  >
-    Total credit limit £
-    0
-     
-  </p>
-  <p
-    className="longTermDebt__debtChange"
-  >
-    Down £100 from last month
-     
-  </p>
-</div>
-`;
-
-exports[`LongTermDebtReport displays when long term debt has increased 1`] = `
-<div
-  className="longTermDebt__report"
->
-  Your long term debt total
-  <p
-    className="longTermDebt__currentDebt"
-  >
-    £
-    800
-  </p>
-  <p
-    className="longTermDebt__creditLimit"
-  >
-    Total credit limit £
-    0
-     
-  </p>
-  <p
-    className="longTermDebt__debtChange"
-  >
-    Up £100 from last month
-     
-  </p>
-</div>
-`;
-
 exports[`LongTermDebtReport renders 1`] = `
 <div
-  className="longTermDebt__report"
+  className="report__longTermDebt"
 >
   Your long term debt total
   <p
-    className="longTermDebt__currentDebt"
+    className="report__currentDebt"
   >
     £
     800
   </p>
   <p
-    className="longTermDebt__creditLimit"
+    className="report__creditLimit"
   >
     Total credit limit £
     0
      
   </p>
   <p
-    className="longTermDebt__debtChange"
+    className="report__debtChangeUp"
   >
-    Down £100 from last month
+    Up
+     £
+    0
+     from last month
+  </p>
+</div>
+`;
+
+exports[`LongTermDebtReport when long term debt has decreased renders 1`] = `
+<div
+  className="report__longTermDebt"
+>
+  Your long term debt total
+  <p
+    className="report__currentDebt"
+  >
+    £
+    800
+  </p>
+  <p
+    className="report__creditLimit"
+  >
+    Total credit limit £
+    0
      
+  </p>
+  <p
+    className="report__debtChangeDown"
+  >
+    Down
+     £
+    300
+     from last month
+  </p>
+</div>
+`;
+
+exports[`LongTermDebtReport when long term debt has increased renders 1`] = `
+<div
+  className="report__longTermDebt"
+>
+  Your long term debt total
+  <p
+    className="report__currentDebt"
+  >
+    £
+    800
+  </p>
+  <p
+    className="report__creditLimit"
+  >
+    Total credit limit £
+    0
+     
+  </p>
+  <p
+    className="report__debtChangeUp"
+  >
+    Up
+     £
+    800
+     from last month
   </p>
 </div>
 `;
