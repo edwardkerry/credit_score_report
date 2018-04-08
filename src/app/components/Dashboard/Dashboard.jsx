@@ -6,7 +6,7 @@ import makeCreditScore from '../../models/creditScore'
 import makeLongTermDebt from '../../models/longTermDebt'
 
 import Loading from '../Loading/Loading'
-import ReactContainer from '../ReportContainer/ReportContainer'
+import ReportContainer from '../ReportContainer/ReportContainer'
 
 import './dashboard.scss';
 
@@ -35,7 +35,7 @@ class Dashboard extends Component {
    render() {
     return this.state.loading ?
       <Loading /> :
-      <ReactContainer creditScore={this.state.creditScore} longTermDebt={this.state.longTermDebt}/>
+      <ReportContainer creditScore={this.state.creditScore} longTermDebt={this.state.longTermDebt}/>
   }
 }
 

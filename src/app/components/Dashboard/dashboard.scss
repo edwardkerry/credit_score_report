@@ -1,5 +1,12 @@
 body {
-  background: no-repeat top;
-  background-size: cover;
   background-image: url('/background--dashboard.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  webkit-background-size: cover;
+  height:100%;
+  width:100%;
 }
+
+

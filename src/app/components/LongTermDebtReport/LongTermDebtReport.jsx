@@ -3,7 +3,7 @@ import { number, string } from 'prop-types';
 
 import bemHelper from '../../utils/bem';
 
-const cn = bemHelper({ block: 'longTermDebt' });
+const cn = bemHelper({ block: 'report' });
 
 const monthlyChange = (debtChange) => {
   const direction = debtChange >= 0 ? 'Up' : 'Down'
@@ -12,7 +12,7 @@ const monthlyChange = (debtChange) => {
 
 const LongTermDebtReport = ({ currentCreditLimit, currentDebt, debtChange }) => {
   return (
-    <div className={cn('report', null)}>
+    <div className={cn('longTermDebt', null)}>
       Your long term debt total 
         <p className={cn('currentDebt', null)}>£{currentDebt}</p>
 

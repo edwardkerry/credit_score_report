@@ -36,6 +36,8 @@ $col2-width: 66% !default;
 }
 
 .layout__content {
+  display: flex;
+  justify-content: center;
   height: 100%;
   max-height: $content-height;
   padding: 0 2.25%;

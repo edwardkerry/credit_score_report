@@ -7,6 +7,8 @@ import LongTermDebtReport from '../LongTermDebtReport/LongTermDebtReport.jsx';
 
 import bemHelper from '../../utils/bem';
 
+import './reportContainer.scss'
+
 const cn = bemHelper({ block: 'report' });
 
 const ReactContainer = ({ creditScore, longTermDebt}) => {
@@ -15,22 +17,23 @@ const ReactContainer = ({ creditScore, longTermDebt}) => {
   const { currentCreditLimit, currentDebt, debtChange} = { ...longTermDebt }
 
    return (
-    <Carousel 
-      className={cn('carousel', null)}
-      renderCenterLeftControls={() => {}}    
-      renderCenterRightControls={() => {}}    
-    >
-      <CreditScoreReport 
-        score={score} 
-        maxScore={maxScore} 
-        description={description} 
-      />
-      <LongTermDebtReport 
-        currentCreditLimit={currentCreditLimit} 
-        currentDebt={currentDebt} 
-        debtChange={debtChange}
-      />
-    </Carousel>
+     <div className={cn('carousel', null)}>
+      <Carousel 
+        renderCenterLeftControls={() => {}}    
+        renderCenterRightControls={() => {}}    
+      >
+        <CreditScoreReport 
+          score={score} 
+          maxScore={maxScore} 
+          description={description} 
+        />
+        <LongTermDebtReport 
+          currentCreditLimit={currentCreditLimit} 
+          currentDebt={currentDebt} 
+          debtChange={debtChange}
+        />
+      </Carousel>
+    </div>
   );
 };
 
