@@ -1,0 +1,23 @@
+.report__longTermDebt {
+  font-family: Arial, Helvetica, sans-serif;
+
+  .report__currentDebt {
+     line-height: 0;
+     font-size: 50px;
+     color: #dfb7f6;
+     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+       font-size: 30px;
+     }
+  }
+
+  .report__debtChangeDown {
+    color: #C9DE8B
+  }
+
+  .report__debtChangeUp {
+    color: rgb(214, 87, 165)
+  }
+
+}
+
+

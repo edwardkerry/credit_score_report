@@ -12,8 +12,7 @@ const CreditScoreReport = ({ score, maxScore, description }) => {
     <div className={cn('creditScore', null)}>
       Your credit score is
       <p className={cn('score', null)}>{score}</p>
-      out of
-      <p className={cn('maxScore', null)}> {maxScore} </p>
+      out of <b>{maxScore}</b>
       <p className={cn('description', null)}>{description}</p>
     </div>
   )

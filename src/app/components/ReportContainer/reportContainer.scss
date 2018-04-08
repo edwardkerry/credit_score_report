@@ -1,17 +1,27 @@
 .report__carousel{
   display: flex;
-  align-content: center;
   margin-top: 20vh;
   margin-bottom: 25vh;
   border: solid rgba(255, 255, 255, 0.932) 2px;
-
   border-radius: 50%;
-  background: rgba(228, 223, 223, 0.671);
+  background: rgba(110, 107, 107, 0.5);
   height: 400px;
   width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: white;
+  text-align: center;
   
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 15px;
     height: 250px;
     width: 250px;
+  }
+
+  .slider-list {
+    margin-top: 75px !important;
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      margin-top: 50px !important;
+    }
   }
 } 

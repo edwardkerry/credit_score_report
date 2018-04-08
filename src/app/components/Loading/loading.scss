@@ -2,23 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20vh;
+  margin-bottom: 25vh;
+  border-radius: 25%;
   width: 100px;
   height: 100px;
   background-size: cover;
-  -webkit-animation: fadein 2s ease-in alternate infinite;
-  -moz-animation: fadein 2s ease-in alternate infinite;
   animation: fadein 2s ease-in alternate infinite;
   background-image: url('/clearscore.png');
-}
-
-@-webkit-keyframes fadein {
-  from { opacity: 0.2; }
-  to { opacity: 0.8; }
-}
-
-@-moz-keyframes fadein {
-  from { opacity: 0.2; }
-  to { opacity: 0.8; }
 }
 
 @keyframes fadein {
