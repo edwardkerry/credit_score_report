@@ -1,9 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import { creditScoreReport, longTermDebtReport } from '../../../../tests/mocks/fixtures'
-import mockAPIResponse from '../../../../tests/mocks/mockAPIResponse'
-
 import Dashboard from './Dashboard.jsx';
 import Loading from '../Loading/Loading.jsx'
 import ReportContainer from '../ReportContainer/ReportContainer.jsx'
