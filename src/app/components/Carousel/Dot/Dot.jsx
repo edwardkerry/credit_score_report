@@ -7,11 +7,12 @@ const cn = bemHelper({ block: 'carousel' });
 
 const Dot = ({select, active}) => (
   <li>
-    <a className={
-      active ? cn('dot', 'active'): cn('dot', null)
-    }
-      onClick={select}
-    />
+    {active ? 
+      <a className={ cn('dot', 'active')}/> :
+      <a className={cn('dot', 'null')}
+        onClick={select}
+      /> 
+    } 
   </li>
 )
 
