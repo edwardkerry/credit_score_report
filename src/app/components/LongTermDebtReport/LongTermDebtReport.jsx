@@ -9,7 +9,7 @@ const cn = bemHelper({ block: 'report' });
 
 const monthlyChange = (debtChange) => {
   const direction = debtChange >= 0 ? 'Up' : 'Down'
-   return( <p className={ cn(`debtChange${direction}`, null)}> 
+   return( <p className={ cn(`debtChange`, direction)}> 
       {direction} £{Math.abs(debtChange)} from last month
     </p>)
 }
