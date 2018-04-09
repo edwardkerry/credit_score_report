@@ -1,0 +1,16 @@
+.carousel__slide {
+  position: relative;
+  display: none;
+  list-style-type: none;
+  text-align: center;
+  right: -100px;
+  &--active {
+    animation: slide 0.5s forwards;
+    display: block;
+  }
+  @keyframes slide {
+    100% {
+      right: 0
+    }
+  }
+}

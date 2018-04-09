@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { object, bool } from 'prop-types';
 import bemHelper from '../../../utils/bem';
-import '../carousel.scss';
+import './slide.scss';
 
 const cn = bemHelper({ block: 'carousel' });
 

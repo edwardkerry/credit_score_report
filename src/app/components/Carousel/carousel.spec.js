@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
 import Carousel from './Carousel.jsx';
 import Slide from './Slide/Slide.jsx';
 import Dot from './Dot/Dot.jsx';
@@ -37,7 +36,7 @@ describe('Carousel', () => {
   describe('#selectSlide', () => {
     it('sets the passed value as the current active slide index')
     const currentIndex = 999
-    const component = mount(<Carousel slides={[]} />).instance()
+    const component = shallow(<Carousel slides={[]} />).instance()
     component.selectSlide(currentIndex)
     expect(component.state.activeSlideIndex).toEqual(999)
   })

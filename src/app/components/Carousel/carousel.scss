@@ -11,23 +11,6 @@
   }
 }
 
-.carousel__slide {
-  position: relative;
-  display: none;
-  list-style-type: none;
-  text-align: center;
-  right: -100px;
-  &--active {
-    animation: slide 0.5s forwards;
-    display: block;
-  }
-
-  @keyframes slide {
-    100% { right: 0 }
-  }
-
-}
-
 .carousel__dots {
   display: flex;
   flex-direction: row;
@@ -39,22 +22,3 @@
     }
   }
 }
-
-.carousel__dot {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #c9c9d8;
-  cursor: pointer;
-  opacity: .15;
-  &:hover {
-    opacity: .5;
-  }
-  &--active {
-    &,&:hover {
-      opacity: .75;
-    }
-  }
-}
-
