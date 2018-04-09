@@ -1,52 +1,44 @@
-![ClearScore](https://raw.githubusercontent.com/ClearScore/FED-home-test/master/docs/clearscore.png?token=ABpdw5m-hB7aVWCKaYGpucwwUt438SHLks5atOQHwA%3D%3D)
+# Credit Score Indicator
 
-# Frontend Test
+This is a simple React application to read from the Credit Report Info endpoint and present current Credit Score and Long Term Debt information.
 
-## About us
+## Components and application flow
 
-At ClearScore we are not limited to the technology stack we can use. Our systems evolve quickly and choosing the right tools for the job is an important factor within our development cycle.
+* The Dashboard component is responsible for setting application state, which is passed as Props to downstream components. At this early stage it did not seem necessary to implement a technology such as Redux or Flux for state management.
 
-We are currently working with...
- * ES6 and ES7 throughout the codebase
- * React with Redux (Some legacy apps used Angular, but this is being phased out)
- * Isomorphic / Universal SPA
- * SASS and following BEM, css-modules for styling
- * MEN (Mongo, Express, Node) stack websites
- * We build using the Webpack module bundler and Lerna package manager
- * Jest for Unit testing
- * We currently support the latest 2 versions of Edge, Chrome, Firefox and Safari (plus ie11)
+The dashboard first mounts with a default loading state of `true`, which renders a simple pulsing loading indicator.
 
-## Background
+When the dashboard has mounted it uses the project utility GetJSON function to hit the API. The response is transformed by the creditScore and longTermDebt models into simple Objects which are stored in state. In this way, it will be simple to add further models to add additional reports to the dashboard when required.
 
-A developer is halfway through a `score indicator feature` card and has been called away.
+Loading is set to `false`, and the ReportContainer component is rendered.
 
-It is now up to you to finish the feature ready to release.
+* The ReportContainer is a basic wrapper which loads a  carousel. The ReportContainer passes the CreditScoreReport and LongTermDebtReport to the Carousel as an array of Report components, extracting their required props from the two Objects passed down from the Dashboard.
 
-## The Task
+* The CreditScoreReport is a presentational component that recieves and displays props.
 
-Build our circular score indicator, as shown on [clearscore.com/account/](https://www.clearscore.com/account/) and [https://youtu.be/tIjtcL5Z0Wk?t=5](https://youtu.be/tIjtcL5Z0Wk?t=5).
- * [Desktop example](/docs/score-indicator-desktop.jpg) 
- * [Mobile Example](/docs/score-indicator-mobile.jpg)
+* The LongTermDebtReport is slightly more complex as, depending on a positive or negative change in debt, it will display a different message.
 
-Send your solution as a link to a public git repository with clear instructions and your thoughts in the README.
+* The Carousel recieves an array of components, and will maps each one in as a `<li>` in an `<ul>` of Slide components. 
+A Slide component simply renders any passed content - the CreditScoreReport and LongTermDebtReport components.
 
-## The AC's
+The Carousel also renders a line of interactive selection `Dots`, one mapped for each component in the original array. The dot recieves a, onClick function and if clicked will update the activeSlideIndex in the Carousel state. 
 
- 1. Build a carousel containing 2 slides.
- 2. Build the first score indicator slide, and animate in a second panel for long term debt.
- 3. Show the given score in the middle and with an arc outside that represents the score out of 700
- 4. The arc animates on load with a bouncing effect at the end
- 5. The data can be requested from [https://s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json](https://s3.amazonaws.com/cdn.clearscore.com/native/interview_test/creditReportInfo.json)
+The activeSlideIndex is set to 0, to displaay the first component in the array. If the index of the Dot and Slide in their respective collections matches the activeSlideIndex, they apply an `--active` modifier to their class name. For a Slide, this causes it to become visible and transition from the right. For a Dot, this causes the opacity to change to indicate it is selected and to disable the onClick callback.
 
-## What we're looking for
- * A stylish solution with unit test coverage
- * Clean, concise code
- * Knowledge of ES6 syntax
- * A detailed README
- * A live site we can see if possible 
+As the Carousel takes any number of Slides, again it would be fairly straightforward to develop further `Report` components and for the ReportContainer to pass these through.
 
-## Getting Started
+## Issues and notes
 
- * Run: `yarn start:webpack`
- * Run: `yarn start:dev` _(in a new terminal)_
- * Goto: `http://localhost:3000/`
+* Webpack 4.2.3 and above has introduced an issue with
+
+* Jest's moduleNameMapper was not correctly excluding SCSS files when reading config from `jest.json`. I have copied this directly into package.json
+
+* Unfortunately I have not yet implemented the progress arc. I would envisage this as an SVG, and imported by the CreditScoreReport. The CreditScoreReport does have access to the maximum and current scores, which would be used to calculate the percentage of the bar to fill and animate a bounce effect.
+
+* The application has some basic breakpoints to render appropriately on both mobile and desktop.
+
+* Components are tested with Enzyme shallow rendering and Jest snapshots. I have added `shallow` as a global variable in the `enzymeSetup` file.
+
+* I have included a mockAPIResponse for use in tests, along with two fixtures of the created creditReport and longTermDebt objects.
+
+I am unfamiliar with Jest and would have liked to test the Dashboard's componentDidMount, but was unable to successfuly mock the getJSON function to avoid actually calling the API. I considered introducing Sinon to the project which I am more familiar with, but this felt unnecessary as it would be replicating existing functionality.
