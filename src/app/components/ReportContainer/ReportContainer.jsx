@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {shape, number, string } from 'prop-types';
-import Carousel from 'nuka-carousel';
+import Carousel from '../Carousel/Carousel.jsx';
 import CreditScoreReport from '../CreditScoreReport/CreditScoreReport.jsx';
 import LongTermDebtReport from '../LongTermDebtReport/LongTermDebtReport.jsx';
 import bemHelper from '../../utils/bem';
@@ -14,22 +14,20 @@ const ReactContainer = ({ creditScore, longTermDebt}) => {
   const { currentCreditLimit, currentDebt, debtChange} = { ...longTermDebt }
 
    return (
-     <div className={cn('carousel', null)}>
+     <div className={cn('container', null)}>
       <Carousel 
-        renderCenterLeftControls={() => {}}    
-        renderCenterRightControls={() => {}}    
-      >
-        <CreditScoreReport 
-          score={score} 
-          maxScore={maxScore} 
-          description={description} 
-        />
-        <LongTermDebtReport 
-          currentCreditLimit={currentCreditLimit} 
-          currentDebt={currentDebt} 
-          debtChange={debtChange}
-        />
-      </Carousel>
+        slides={[
+          <CreditScoreReport 
+            score={score} 
+            maxScore={maxScore} 
+            description={description} 
+          />,
+          <LongTermDebtReport 
+            currentCreditLimit={currentCreditLimit} 
+            currentDebt={currentDebt} 
+            debtChange={debtChange}
+          />
+        ]}/>
     </div>
   );
 };

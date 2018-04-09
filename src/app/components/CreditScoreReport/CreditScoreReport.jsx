@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { number, string } from 'prop-types';
 import bemHelper from '../../utils/bem';
+import ProgressArc from '../ProgressArc/ProgressArc'
 import './creditScoreReport.scss'
 
 const cn = bemHelper({ block: 'report' });
@@ -13,13 +14,13 @@ const CreditScoreReport = ({ score, maxScore, description }) => {
       out of <b>{maxScore}</b>
       <p className={cn('description', null)}>{description}</p>
     </div>
-  )
-}
+  );
+};
 
 CreditScoreReport.propTypes = {
   description: string.isRequired,
   maxScore: number.isRequired,
   score: number.isRequired 
-}
+};
 
 export default CreditScoreReport;
