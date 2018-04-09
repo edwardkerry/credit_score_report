@@ -7,14 +7,19 @@ import ReportContainer from '../ReportContainer/ReportContainer.jsx';
 
 describe('Dashboard', () => {
   describe('when loading', () => {
+    it('renders', () => {
+      const component = renderer.create(<Dashboard />)
+      const json = component.toJSON();
+      expect(json).toMatchSnapshot();
+    })
+    
     it('displays a loading sign', () => {
       const component = shallow(<Dashboard />);
       expect(component.find(Loading).exists()).toEqual(true);
     });
   });
 
-  describe('when loaded', () => {
- 
+  describe('when loaded', () => { 
     const component = shallow(<Dashboard />);
     
     component.setState({
