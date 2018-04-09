@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel renders 1`] = `
+<div
+  className="carousel__container"
+>
+  <ul
+    className="carousel__slides"
+  >
+    <li
+      className="carousel__slide carousel__slide--active"
+    >
+      <h1>
+        Example 1
+      </h1>
+    </li>
+    <li
+      className="carousel__slide"
+    >
+      <h2>
+        Example 2
+      </h2>
+    </li>
+    <li
+      className="carousel__slide"
+    >
+      <h3>
+        Example 3
+      </h3>
+    </li>
+  </ul>
+  <ul
+    className="carousel__dots"
+  >
+    <li>
+      <a
+        className="carousel__dot carousel__dot--active"
+      />
+    </li>
+    <li>
+      <a
+        className="carousel__dot carousel__dot--null"
+        onClick={[Function]}
+      />
+    </li>
+    <li>
+      <a
+        className="carousel__dot carousel__dot--null"
+        onClick={[Function]}
+      />
+    </li>
+  </ul>
+</div>
+`;

@@ -5,7 +5,7 @@ import '../carousel.scss';
 
 const cn = bemHelper({ block: 'carousel' });
 
-const Dot = ({select, active}) => (
+const Dot = ({active, select}) => (
   <li>
     {active ? 
       <a className={ cn('dot', 'active')}/> :
@@ -17,8 +17,8 @@ const Dot = ({select, active}) => (
 )
 
 Dot.propTypes = {
-  select: func.isRequired,
-  active: bool
+  active: bool,
+  select: func.isRequired
 }
 
 Dot.defaultProps = {
