@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { creditScoreReport, longTermDebtReport } from '../../../../tests/mocks/fixtures'
+import { creditScoreReport, longTermDebtReport } from '../../../../tests/mocks/fixtures';
 import Dashboard from './Dashboard.jsx';
-import Loading from '../Loading/Loading.jsx'
-import ReportContainer from '../ReportContainer/ReportContainer.jsx'
+import Loading from '../Loading/Loading.jsx';
+import ReportContainer from '../ReportContainer/ReportContainer.jsx';
 
 describe('Dashboard', () => {
   describe('when loading', () => {

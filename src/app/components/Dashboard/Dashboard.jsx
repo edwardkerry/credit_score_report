@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { getJSON } from '../../utils'
-import config from  '../../../config/environment.js'
-import makeCreditScore from '../../models/creditScore'
-import makeLongTermDebt from '../../models/longTermDebt'
-import Loading from '../Loading/Loading'
-import ReportContainer from '../ReportContainer/ReportContainer'
+import React, { Component } from 'react';
+import { getJSON } from '../../utils';
+import config from  '../../../config/environment.js';
+import makeCreditScore from '../../models/creditScore';
+import makeLongTermDebt from '../../models/longTermDebt';
+import Loading from '../Loading/Loading';
+import ReportContainer from '../ReportContainer/ReportContainer';
 import './dashboard.scss';
 
 class Dashboard extends Component {

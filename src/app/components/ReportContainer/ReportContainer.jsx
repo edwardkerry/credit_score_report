@@ -4,7 +4,7 @@ import Carousel from '../Carousel/Carousel.jsx';
 import CreditScoreReport from '../CreditScoreReport/CreditScoreReport.jsx';
 import LongTermDebtReport from '../LongTermDebtReport/LongTermDebtReport.jsx';
 import bemHelper from '../../utils/bem';
-import './reportContainer.scss'
+import './reportContainer.scss';
 
 const cn = bemHelper({ block: 'report' });
 
@@ -44,6 +44,6 @@ ReactContainer.propTypes = {
     currentCreditLimit: number.isRequired,
     debtChange: number.isRequired
   })
-}
+};
 
 export default ReactContainer;

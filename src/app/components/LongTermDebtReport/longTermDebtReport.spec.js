@@ -8,7 +8,6 @@ describe('LongTermDebtReport', () => {
   
   it('renders', () => {
     const debtChange = 0
-    console.log(debtChange)
     const component = renderer.create(<LongTermDebtReport 
       currentCreditLimit={currentCreditLimit} 
       currentDebt={currentDebt} 
@@ -21,9 +20,8 @@ describe('LongTermDebtReport', () => {
   
   describe('when long term debt has increased', () => {
     const debtChange = 800
-    console.log(debtChange)
 
-    it('renders', () => {
+    it('renders reporting the increase', () => {
       const component = renderer.create(
         <LongTermDebtReport
           currentCreditLimit={currentCreditLimit}
@@ -39,7 +37,7 @@ describe('LongTermDebtReport', () => {
   describe('when long term debt has decreased', () => {
     const debtChange = -300
 
-    it('renders', () => {
+    it('renders reporting the decrease', () => {
       const component = renderer.create(
         <LongTermDebtReport
           currentCreditLimit={currentCreditLimit}

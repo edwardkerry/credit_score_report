@@ -19,7 +19,7 @@ exports[`LongTermDebtReport renders 1`] = `
      
   </p>
   <p
-    className="report__debtChangeUp"
+    className="report__debtChange report__debtChange--Up"
   >
     Up
      £
@@ -29,7 +29,7 @@ exports[`LongTermDebtReport renders 1`] = `
 </div>
 `;
 
-exports[`LongTermDebtReport when long term debt has decreased renders 1`] = `
+exports[`LongTermDebtReport when long term debt has decreased renders reporting the decrease 1`] = `
 <div
   className="report__longTermDebt"
 >
@@ -48,7 +48,7 @@ exports[`LongTermDebtReport when long term debt has decreased renders 1`] = `
      
   </p>
   <p
-    className="report__debtChangeDown"
+    className="report__debtChange report__debtChange--Down"
   >
     Down
      £
@@ -58,7 +58,7 @@ exports[`LongTermDebtReport when long term debt has decreased renders 1`] = `
 </div>
 `;
 
-exports[`LongTermDebtReport when long term debt has increased renders 1`] = `
+exports[`LongTermDebtReport when long term debt has increased renders reporting the increase 1`] = `
 <div
   className="report__longTermDebt"
 >
@@ -77,7 +77,7 @@ exports[`LongTermDebtReport when long term debt has increased renders 1`] = `
      
   </p>
   <p
-    className="report__debtChangeUp"
+    className="report__debtChange report__debtChange--Up"
   >
     Up
      £
