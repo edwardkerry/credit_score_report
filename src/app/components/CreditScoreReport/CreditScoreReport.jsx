@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { number, string } from 'prop-types';
 import bemHelper from '../../utils/bem';
-import ProgressArc from '../ProgressArc/ProgressArc'
 import './creditScoreReport.scss'
 
 const cn = bemHelper({ block: 'report' });
