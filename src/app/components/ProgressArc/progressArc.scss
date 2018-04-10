@@ -1,0 +1,27 @@
+.progress__container {
+  position: absolute;
+  width: 400px;
+  margin-top: -70px;
+  margin-left: -95px;
+
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    display:none
+  }
+}
+.progress__circle {
+  transform: rotate(-90deg);
+}
+
+.progress__value {
+  stroke-dasharray: 339.292;
+  animation: progress 5s 1;
+}
+
+@keyframes progress {
+  from {
+    stroke-dashoffset: 339.292;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
