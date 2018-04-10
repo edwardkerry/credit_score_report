@@ -4,36 +4,42 @@ This is a simple React application to read from the Credit Report Info endpoint 
 
 ## Components and application flow
 
-* The Dashboard component is responsible for setting application state, which is passed as Props to downstream components. At this early stage it did not seem necessary to implement a technology such as Redux or Flux for state management.
+### Dashboard 
 
-The dashboard first mounts with a default loading state of `true`, which renders a simple pulsing loading indicator.
+This is a stateful component. At this stage, and with current application complexity, it did not seem necessary to implement a state management technology.
 
-When the dashboard has mounted it uses the project utility GetJSON function to hit the API. The response is transformed by the creditScore and longTermDebt models into simple Objects which are stored in state. In this way, it will be simple to add further models to add additional reports to the dashboard when required.
+The Dashboard first mounts with a default loading state of `true`, which renders a simple pulsing Loading indicator.
+
+When the dashboard has mounted it uses the `GetJSON` utility function to call the API. The response is transformed by the creditScore and longTermDebt models into simple objects which are stored in component state. In this way, it will be simple to add further models to add additional reports to the dashboard if required.
 
 Loading is set to `false`, and the ReportContainer component is rendered.
 
-* The ReportContainer is a basic wrapper which loads a  carousel. The ReportContainer passes the CreditScoreReport and LongTermDebtReport to the Carousel as an array of Report components, extracting their required props from the two Objects passed down from the Dashboard.
+### ReportContainer 
+
+This is a stateless wrapper which recieves the report objects as props. It spreads these props to pass them into the imported CreditScoreReport and LongTermDebtReport components.
 
 * The CreditScoreReport is a presentational component that recieves and displays props.
 
 * The LongTermDebtReport is slightly more complex as, depending on a positive or negative change in debt, it will display a different message.
 
-* The Carousel recieves an array of components, and will maps each one in as a `<li>` in an `<ul>` of Slide components. 
-A Slide component simply renders any passed content - the CreditScoreReport and LongTermDebtReport components.
+The ReportContainer loads the Carousel, passing the two report components as an array.
 
-The Carousel also renders a line of interactive selection `Dots`, one mapped for each component in the original array. The dot recieves a, onClick function and if clicked will update the activeSlideIndex in the Carousel state. 
+ ### Carousel 
+ 
+ This is a stateful component which keeps track of the current activeSlideIndex, and also has a simple key generator to ensure each list element has a unique key. It maps each element in the recieved array as a `<li>` in an `<ul>` of Slide components. The active Slide is selected using an interactive Dot. 
 
-The activeSlideIndex is set to 0, to displaay the first component in the array. If the index of the Dot and Slide in their respective collections matches the activeSlideIndex, they apply an `--active` modifier to their class name. For a Slide, this causes it to become visible and transition from the right. For a Dot, this causes the opacity to change to indicate it is selected and to disable the onClick callback.
+* A Slide component simply renders any passed content.
+
+* A Dot is rendered for each component in the passed Array. The Dot recieves an onClick function which will update the activeSlideIndex in the Carousel state. 
+
+The activeSlideIndex is set to 0, to display the first component in the array. The Dot and Slide in their respective collections with a matching index apply a `--active` modifier to their class name. For a Slide, this causes it to become visible and transition in from the right. For a Dot, this causes the opacity to change to indicate it is selected and to disable the onClick callback.
 
 As the Carousel takes any number of Slides, again it would be fairly straightforward to develop further `Report` components and for the ReportContainer to pass these through.
 
 ## Issues and notes
 
-* Webpack 4.2.3 and above has introduced an issue with
-
-* Jest's moduleNameMapper was not correctly excluding SCSS files when reading config from `jest.json`. I have copied this directly into package.json
-
-* Unfortunately I have not yet implemented the progress arc. I would envisage this as an SVG, and imported by the CreditScoreReport. The CreditScoreReport does have access to the maximum and current scores, which would be used to calculate the percentage of the bar to fill and animate a bounce effect.
+* Unfortunately I have not yet fully implemented the ProgressArc. A work in progress can be seen on the branch 
+`progress_arc`. This as an SVG, currrently imported by the CreditScoreReport. The CreditScoreReport can passes the `maxScore` and `score`, which will be used to calculate the percentage of the bar to fill, and a corresponding percentage to "bounce" back to. Currently a complete circle only is implemented, on Desktop. The current approach causes some issues with the background image on Mobile. 
 
 * The application has some basic breakpoints to render appropriately on both mobile and desktop.
 
@@ -41,4 +47,8 @@ As the Carousel takes any number of Slides, again it would be fairly straightfor
 
 * I have included a mockAPIResponse for use in tests, along with two fixtures of the created creditReport and longTermDebt objects.
 
-I am unfamiliar with Jest and would have liked to test the Dashboard's componentDidMount, but was unable to successfuly mock the getJSON function to avoid actually calling the API. I considered introducing Sinon to the project which I am more familiar with, but this felt unnecessary as it would be replicating existing functionality.
+* I am unfamiliar with Jest and would have liked to test the Dashboard's componentDidMount, but was unable to successfuly mock the getJSON function to avoid actually calling the API. I considered introducing Sinon to the project which I am more familiar with, but this felt unnecessary as it would be replicating existing functionality.
+
+* Webpack 4.3.0 introduced a confllict with ExtractTextWebpackPlugin, by also using a variable called `contenthash`. I have restricted Webpack to `~4.2.*`
+
+* Jest's moduleNameMapper was not correctly excluding SCSS files when reading config from `jest.json`. I have copied this directly into package.json
